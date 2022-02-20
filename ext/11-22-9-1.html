@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 物件初始化
+        let objPerson = {
+            name: "Bill",
+            age: 25,
+            hairColor: "black",
+            skinColor: "beige"
+        };
+
+        // 新增屬性，had 動詞
+        objPerson.hadShoes = true;
+        objPerson.isWoken = true;
+
+        console.log(objPerson);
+
+        // 修改屬性
+        // 很少會這樣修改
+        objPerson.age = 26;
+        
+        // 刪除屬性
+        delete objPerson.skinColor;
+
+        // 將 obj 變成 JSON
+        let strJson = JSON.stringify(objPerson);
+
+        console.log(strJson);
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

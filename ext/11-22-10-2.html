@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 匿名函式，本身沒有名稱，變數即是函式名稱
+        let say01 = function () {
+            console.log('hello world');
+        };
+        
+        say01();
+
+        // 帶參數
+        let say02 = function(name) {
+            console.log("hello " + name);
+        }
+
+        say02("Alex");
+
+        // 有回傳值
+        let say03 = function(name) {
+            return 'hello ' + name;
+        }
+
+        console.log(say03("Bill"));
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

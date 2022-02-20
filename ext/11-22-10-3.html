@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 如果有需要在一開網頁時，先執行什麼，就會用這個
+        // 顯示在 console 面板
+        // 兩組小括號，第一組放匿名函式，第二組放參數
+        (
+            function() {
+                console.log('hello world');
+            }
+        )();
+
+        // 跳出訊息
+        (
+            function(name) {
+                alert('good job! ' + name);
+            }
+        )('Darren');
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

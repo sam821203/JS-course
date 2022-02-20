@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 跳脫字元 (\)：避免字串當中有單引號
+        console.log('Did you talk to Mary\'s brother?');
+        console.log('that is Sam\'s T-shirts.');
+
+        // 如果遇到可能會有很多對話雙引號，需要在每個雙引號前面加 (\)，才能取消掉效果
+        console.log("我說：\"你臉皮很厚\", 他說：\"常常被這樣說\", 她又說：\"請教我怎麼變厚？\"");
+        console.log("我說：\"你臉皮很厚\", 他說：\"常常被這樣說\", 她又說：\"請教我怎麼變厚？\"");
+        console.log("我說：\"測試中\"，她說：\"要測啥？\"，我又回說：\"看你心情阿!!\"");
+
+        // 其它種類的跳脫字元
+        // \t：縮排，等同於 tab 鍵
+        // \r：Enter (return)
+        // \n：斷行，代表建立新的一行(new line)
+
+        /** 
+         * 
+         *   
+         * 
+         * 
+         * 
+         */
+        
+        console.log("嗨!\t\t\t\t你好\n請你登出")
+        console.log("我要測試\t\t\t\t\t可以嘛？\n就算不可，我也的測！");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

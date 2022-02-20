@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- jQuery UI -->
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    
+     <!-- 參考連結: https://www.jqueryscript.net/other/jQuery-UI-Rotatable-Elements.html -->
+     <link href="./jquery.ui.rotatable.css" rel="stylesheet">
+     
+     
+     <style>
+         body {
+             background-image: url(https://wallpapercave.com/wp/otgYJMh.jpg);
+         }
+     </style>
+
+</head>
+<body>
+
+    <input type="text" 
+        id="url" 
+        placeholder="請輸入LINE官方貼圖" 
+        value="" 
+        style="width: 250px;">
+    <button id="btn_request">取得LINE官方貼圖</button>
+    <ul id="myList"></ul>
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- 參考連結: https://www.jqueryscript.net/other/jQuery-UI-Rotatable-Elements.html -->
+    <script src="./jquery.ui.rotatable.js"></script>
+
+    <script>
+        // 取得 Json 字串
+        document.querySelector('button#btn_request').addEventListener('click', function(event) {
+            // 取得 url
+            let url = document.querySelector("input#url").value;
+                if (url === '') {
+                    alert(`請輸入 Line 官方貼圖`);
+                    return false;
+                }
+
+                //Web API
+                $.get('http://localhost/linestickers.php', {url: url}, function(obj) {
+                        // 取得 ul#myList
+                        let ul = document.querySelector('ul#myList');
+
+                    // 這裡要清空上一次的隨機貼圖
+                        let removeLi = ul.querySelectorAll('li');
+
+                        //除了常用的 for 迴圈，還可以使用 .forEach() 來逐次操作元素
+                        removeLi.forEach(function(li) {
+                            // 移除元素
+                            li.remove();
+                        });
+
+                        if (obj['success']) {
+                            for (let o of obj["results"]) {
+                                // 新增 li
+                                let li = document.createElement("li");
+
+                                // 隨機提供座標
+                                li.style.position = 'absolute';
+                                li.style.top = (Math.floor (Math.random() * 500) + 1) + 'px';
+                                li.style.left =  (Math.floor ( Math.random() * 1200) + 1) + 'px';
+
+                                //設定 style 屬性
+                                li.style.width = "160px";
+                                li.style.height = "20px";
+                                li.style.border = '1px solid';
+                                li.style.borderRadius = '200px / 200px';
+                                li.style.backgroundColor = '#FEF567';
+                                li.style.listStyle = 'none';
+                                li.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
+
+                                let img = document.createElement("img");
+                                img.src = o["staticUrl"];
+                                img.style.width = "148px";
+
+                                // 整合
+                                li.appendChild(img);
+                                ul.appendChild(li);
+                            }
+
+                            // 使用 rotatable plugin 透過滑鼠滾倫上下操作，使圖片旋轉
+                            $('ul#myList li').each(function() {
+                                $(this).draggable().rotatable ({
+                                    degrees: (Math.floor (Math.random() * 360) + 1)
+                                });
+                            });
+                        } else {
+                            console.log(obj);
+                        }
+                    }
+                )
+        });
+    </script>
+</body>
+</html>

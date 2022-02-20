@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" style="width: 100px; height: 50x;">連點兩下: 0</button>
+    
+    <script>
+        // 計數用的變數
+        let count = 0;
+        let width = 100;
+        let height = 50;
+
+        // 註冊 dbclick 事件
+        document.querySelector('button#btn').addEventListener('dblclick', function(event) {
+            count++;
+            width += 30;
+            height += 30;
+
+            this.innerText = '連點兩下：' + count;
+            this.style.width = width + 'px';
+            this.style.height = height + 'px';
+        });
+
+
+        document.querySelector('button#btn').addEventListener('dblclick', function() {
+            this.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        });
+
+        // 回呼函式 (callback function)
+        function say (strName, callback_function) {
+            let str = `Hi! ${strName}`;
+            return callback_function(str);
+        }
+
+        // 把其他 function 值行完的結果拿來當變數
+        // 這裡的 function(str) 如果只有寫 function()，就不會帶 str 參數回來
+        say('Darren', function(str){
+            alert(str);
+        });
+        
+        // 3秒A >> 3秒B >> 3秒C
+        setTimeout(function(){
+            alert('A');
+
+            setTimeout(function() {
+                alert('B');
+
+                setTimeout(function() {
+                    alert('C');
+                }, 3000);
+            }, 3000);
+        }, 3000);
+    </script>
+</body>
+</html>

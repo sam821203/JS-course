@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p>問世間，</p>
+    <p>情是何物，</p>
+    <p>直教生死相許。</p> -->
+
+    <!-- <h1>問世間</h1>
+    <h1>問世間</h1>
+    <h1>問世間</h1> -->
+
+    <!-- <p>測試中，</p>
+    <p>為何會多出來空白？</p>
+    <p>但如果我自己打的話，好像又不會有這個出來</p> -->
+
+    <p>問世間，</p>
+    <p>情是何物，</p>
+    <p>直教生死相許。</p>
+
+    <script>
+        // document.querySelector() 只會選取第一個 <p>  
+        let p = document.querySelector('p');
+        p.style.backgroundColor = '#7878ff';
+
+        /**
+         * 如果要用 document.querySelectorAll() 來選取所有的 <p>
+         * 就不能只下 p.style.backgroundColor = '#7878ff';，需要明確告訴電腦 p[0].style.backgroundColor = '#ff0000';
+         */
+        
+        // 下面這種寫法就不存在
+        // let p = document.querySelectorAll('p');
+        // p.style.backgroundColor = '#7878ff';
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+    <style>
+#map {height: 480px;}
+
+        table, thead, th, tbody, tr, td {
+            border: 1px solid;
+        }
+
+        thead {
+            color: lightseagreen;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <button id = "btn_request">取得列表</button>
+
+    
+
+    <table>
+        <thead>
+            <tr>
+                <td>_id</td>
+                <td>設施名稱</td>
+                <td>緯度</td>
+                <td>經度</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    
+
+    <script>
+        var map = L.map('map').setView([25.08052, 121.603637], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+
+        document.querySelector('button#btn_request').addEventListener('click', function(event) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get','https://data.taipei/api/v1/dataset/f5e85031-8e9b-4635-9e17-198f4ac5361f?scope=resourceAquire');
+            xhr.send();
+            xhr.onload = function() {
+                console.log('連線中');
+                let obj = JSON.parse(this.responseText);
+                let tbody = document.querySelector('table > tbody');
+                if (obj['result']['count'] > 0) {
+                    for(let o of obj['result']['results']) {
+                        let tr = document.createElement("tr");
+                        tr.innerHTML = `<td>${o['_id']}</td>
+                                    <td>${o['設施名稱']}</td>
+                                    <td>${o['緯度']}</td>
+                                    <td>${o['經度']}</td>`;
+                        tbody.appendChild(tr);
+
+                        L.marker([o['緯度'], o['經度']]).addTo(map)
+                        .bindPopup(o['設施名稱'])
+                        .openPopup();
+                    }
+                }
+            }
+            xhr.onloadend = function(){console.log('連線結束')}
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myForm" method="post" action="" onsubmit="return checkForm();">
+        <lable>您的姓名：</lable>
+        <input type="text" name="username" value="" />
+        <br />
+        <lable>您的 E-mail：</lable>
+        <input type="text" name="email" value="" />
+        <br />
+        <input type="submit" id="btn" value="檢查" />
+    </form>
+
+    <script>
+        
+        // 字串是序列化物件
+        function checkForm() {
+            if (document.querySelector('input[name="username"]').value.length < 2) {
+                alert('請填寫正確姓名');
+                return false;
+            }
+
+            if (!validateEmail(document.querySelector('input[name="email"]').value)) {
+                alert('Email 格式不正確');
+                return false;
+            }
+
+            // 回傳 true，讓 onsubmit 事件可以順利觸發
+            return true;
+        }
+
+
+        function validateEmail(email) {
+            let re = /[a-zA-Z0-9.-_]+@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>

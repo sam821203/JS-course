@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        // 建立新的 div
+        let newDiv = document.createElement('div');
+        let newH1 = document.createElement('h1');
+
+        // 指定元素內建屬性
+        newDiv.id = 'myNewDiv'; //也可以使用 newDiv.setAttribute('id', 'myNewDiv')
+        newDiv.className = 'box'; //也可以使用 newDiv.setAttribute('class', 'box')
+
+        newH1.id = 'myNewH1';
+        newH1.className = 'heading';
+
+        // 建立 textNode 文字節點
+        let textNode = document.createTextNode('Hello World');
+
+        // 透過 newDiv.appendChild 將 textNode 加入至 newDiv
+        newDiv.appendChild(textNode);
+
+        // 透過 document.body.appendChild 來加入 newDiv 到網頁當中
+        document.body.appendChild(newDiv);
+    </script>
+</body>
+</html>

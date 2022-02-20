@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="url" placeholder="請輸入LINE官方貼圖" value="" style="width: 250px;">
+    <button id="btn_request">取得LINE官方貼圖</button>
+    <ul id="myList"></ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        document.querySelector('button#btn_request').addEventListener("click", function(event) {
+            //取得 url
+            let url = document.querySelector('input#url').value;
+
+            //如果 url 為空，則不往下執行
+            if (url === '') {
+                alert(`請輸入LINE官方貼圖`);
+                return false;
+            }
+
+            $.get('https://darreninfo.cc/linestickers.php' ,{url: url}, function(obj) {
+                let ul = document.querySelector('ul#myList');
+
+                if (typeof obj === "object") {
+                    if (obj['success']) {
+                        //將 objJson['results'] 裡面的結果，放置到
+                        for (let o of obj['results']) {
+                            let li = document.createElement("li");
+
+                            let img = document.createElement("img");
+                            img.src = o["staticUrl"];
+                            a.target = "_blank";
+
+                            let textNode = document.createTextNode(o["id"]);
+                            a.appendChild(textNode);
+
+                            li.appendChild(img);
+                            li.appendChild(a);
+
+                            ul.appendChild(li);
+                        }
+                    } else {
+                        alert("資料傳遞失敗");
+                    }
+                } else {
+                    console.log(obj);
+                }
+            });      
+        });
+    </script>
+</body>
+</html>

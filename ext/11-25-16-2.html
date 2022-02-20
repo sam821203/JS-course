@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="url" placeholder="請輸入LINE官方貼圖" value="" style="width: 250px;">
+    <button id="btn_request">取得LINE官方貼圖</button>
+    <ul id="myList"></ul>
+
+    <script>
+        // 取得 JSON 字串
+        document.querySelector('button#btn_request').addEventListener('click', function(event) {
+
+            let url = document.querySelector('input#url').value;
+
+            if (url === '') {
+                alert(`請輸入LINE官方貼圖`);
+                return false;
+            }
+
+            // 這裡的網址就是參數
+            fetch('https://darreninfo.cc/linestickers.php?url=' + url, {
+                //RESTful 方法，常見的有 GET, POST, PUT, DELETE
+                method: 'GET', 
+                //設定標頭: 指明使用者代理為桌面瀏覽器
+                headers: {
+                    'User-Agent': 'Mozilla/4.0 MDN Example'
+                }
+            })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(obj) {
+
+                let ul = document.querySelector('ul#myList');
+
+                for (let o of obj['results']) {
+                    let li = document.createElement('li');
+
+                    //新增 img 元素，並指定 src 的值為貼圖連結
+                    let img = document.createElement('img');
+                    img.src = o["staticUrl"];
+                    img.style = 'width: 200px;'
+
+                    //新增 a 元素，並指定 href 為貼圖連結，同時指定 target="_blank"
+                    let a  = document.createElement("a");
+                    a.href = o["staticUrl"];
+                    a.target = "_blank";
+
+                    //新增放到 a 元素中的內文 innerText
+                    let textNode = document.createTextNode(o["id"]);
+                    a.appendChild(textNode);
+
+                    //將 img 與 a 分別放到 li 當中
+                    li.appendChild(img);
+                    li.appendChild(a);
+
+                    //將 li 放到 ul 當中
+                    ul.appendChild(li);
+                }                
+            })
+        });
+    </script>
+</body>
+</html>

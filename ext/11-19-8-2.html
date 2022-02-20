@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 初始化陣列
+        let listOfName = ['Alex', 'Bill', 'Darren', 'Cook'];
+       
+        // 1. 設定(新增)元素
+        listOfName[4] = 'Sam';
+        console.log(listOfName);
+
+        // 2. 使用 arr.push() 將資料加到陣列尾端
+        listOfName.push("Fox", "Gina");
+        console.log(listOfName)
+
+        // 3. 修改元素
+        listOfName[0] = 'Allen';
+        listOfName[2] = 'Tina';
+        console.log(listOfName);
+
+        listOfName.push("Alpha");
+        listOfName[5] = "Beta";
+        console.log(listOfName);
+
+        // 4. 刪除最末端的元素
+        listOfName.pop();
+        console.log(listOfName);
+
+        // 5. 將刪除的元素指派到變數
+        listOfName.pop();
+        let name = listOfName.pop();
+        console.log(name);
+        console.log(listOfName);
+
+        // 6. 刪除陣列第一個元素： arr.shift()
+        listOfName.shift();
+        console.log(listOfName);
+
+        // 7. 刪除陣列第一個元素，並放置在新的變數中
+        let name2 = listOfName.shift();
+        console.log(name2);
+        console.log(listOfName);
+        
+        // 8. 有時候從尾端刪除的陣列資料，需要移到陣列最前端，使用 .unshift()
+        let name3 = listOfName.pop();
+        listOfName.unshift(name);
+        console.log(listOfName);
+
+        // 9. 從陣列中間新增一個值
+        // arr.splice(指定索引位置，刪除資料數量，寫入資料)
+
+        listOfName.splice(0, 0, "Alexdra");
+        console.log(listOfName);
+
+        // 如果只說要刪兩個 splice(1, 2)，但後面又給三個值，那三個值也都會被移進來
+        let arrRemoveValue = listOfName.splice(1, 2, "Billgay", "Homee", "Sam")
+        console.log(arrRemoveValue);
+        console.log(listOfName);
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 非同步程式語言
+        // 就像是考試時，先拿到考卷的，不一定會先交卷
+        
+        // 先 A 再 B
+        setTimeout(function () {
+            alert('A');
+        }, 3000);
+
+        setTimeout(function () {
+            alert('B');
+        }, 5000);
+
+        // 先 B 再 A
+        setTimeout(function () {
+            alert('A');
+        }, 5000);
+
+        setTimeout(function () {
+            alert('B');
+        }, 3000);
+
+
+        // 這裡會先執行 A 後，才會再執行 B
+        // 要等 A 執行並被點擊後，才會再執行 B
+        setTimeout(function () {
+            alert('A');
+
+            setTimeout(function () {
+                alert('B');
+            }, 3000);
+        }, 5000);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
