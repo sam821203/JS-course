@@ -6,53 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        let str = `{
-            "firstName": "Darren", 
-            "lastName": "Yang", 
-            "gender": "male", 
-            "age": 18,
-            "address": {
-                "streetAddress": "台北市復興南路一段 390 號 2 樓、3 樓", 
-                "city": "Taipei"        
-        },
+        // 物件初始化
+        let objPerson = {
+            name: "Bill",
+            age: 25,
+            hairColor: "black",
+            skinColor: "beige"
+        };
 
-        "phoneNumber": [
-                {
-                    "type": "office",
-                    "number": "6631-6666"
-                }, 
-                {
-                    "type": "fax",
-                    "number": "6631-6598"
-                }
-            ] 
-        }`;
+        // 新增屬性
+        objPerson.hadShoes = true;
+        objPerson.isWoken = true;
 
-        // 將 JSON 轉成物件
-        let obj = JSON.parse(str);
-        
-        // 讀取 obj 物件屬性 firstName
-        // 這裡用 [] 或 . 的方式都可以來選取物件裡的值
-        console.log(obj['firstName']);
-        console.log(obj.firstName);
+        // 修改屬性
+        objPerson.age = 28;
 
-        // 讀取 obj 物件屬性 address 裡面的物件屬性 streetAddress
-        console.log(obj['address']['streetAddress']);
+        // 刪除屬性
+        delete objPerson.skinColor;
 
-        // 使用 for 指定 index 來取得 arr 的值
-        for (let i = 0; i < obj['phoneNumber'].length; i++) {
-            console.log(obj['phoneNumber'][i]['type']);
-            console.log(obj['phoneNumber'][i]['number']);
-        }
+        // 將 obj 變成 JSON
+        let strJson = JSON.stringify(objPerson);
 
-        // 將 obj 物件屬性 phoneNumber 當中的陣列資料 (裡面是物件) 逐一列出
-        for (let o of obj['phoneNumber']) {
-            console.log(o['type']);
-            console.log(o['number']);
-        }
+        console.log(strJson);
     </script>
 </head>
 <body>
-   
+    
 </body>
 </html>

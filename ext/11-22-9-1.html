@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        // 物件初始化
-        let objPerson = {
-            name: "Bill",
-            age: 25,
-            hairColor: "black",
-            skinColor: "beige"
-        };
+        //輸出 json 字串內容
+        let str = `{
+            "firstName": "Darren", 
+            "lastName": "Yang", 
+            "gender": "male", 
+            "age": 18,
+            "address": {
+                "streetAddress": "台北市復興南路一段 390 號 2 樓、3 樓", 
+                "city": "Taipei"
+            },
+            "phoneNumber": [
+                {
+                    "type": "office",
+                    "number": "6631-6666"
+                }, 
+                {
+                    "type": "fax",
+                    "number": "6631-6598"
+                }
+            ] 
+        }`;
 
-        // 新增屬性，had 動詞
-        objPerson.hadShoes = true;
-        objPerson.isWoken = true;
+        // 將 json 字串轉成物件
+        let obj = JSON.parse(str);
+        console.log(obj);
 
-        console.log(objPerson);
+        // 讀取 obj 的屬性 firstName
+        console.log( obj['firstName']);
 
-        // 修改屬性
-        // 很少會這樣修改
-        objPerson.age = 26;
-        
-        // 刪除屬性
-        delete objPerson.skinColor;
+        // 讀取 obj 屬性 address > streetAddress
+        console.log( obj['address']["streetAddress"] );
 
-        // 將 obj 變成 JSON
-        let strJson = JSON.stringify(objPerson);
+        // 使用 for 指定 index 來取得 arr 的值
+        for (let i = 0; i < obj['phoneNumber'].length; i++) {
+            console.log(obj['phoneNumber'][i]['type']);
+            console.log(obj['phoneNumber'][i]['number']);
+        }
 
-        console.log(strJson);
+        // for of 將陣列的值逐一列出
+        for (let o of obj['phoneNumber']) {
+            console.log(o['type']);
+            console.log(o['number']);
+        }
     </script>
 </head>
+
 <body>
-   
+
 </body>
+
 </html>

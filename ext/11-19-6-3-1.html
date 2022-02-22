@@ -8,23 +8,17 @@
 </head>
 <body>
     <script>
-        // i 到 4 的時候，跳出迴圈
-        for (let i = 1; i <= 9; i++) {
-            if (i === 4) {
-                break;
-            }
-            // 所以這裡只會印出 1, 2, 3，不會有 4
-            console.log(`i = ${i}`);
-        }
+        // for (let i = 1; i <= 9; i++) {
+        //     if (i === 4) { break; }
+        //     console.log(`i = ${i}`);
+        // }
 
-        for (let i = 0; i <= 9; i++) {
-            for (let j = 0; j <= 9; j++) {
-                if (j === 4) {
-                    break;
-                }
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= 9; j++) {
+                if (j === 5) { break; }
                 console.log(`i = ${i}, j = ${j}`);
             }
-        }
+        }   
     </script>
 </body>
 </html>

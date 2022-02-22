@@ -15,37 +15,30 @@
 
     <script>
         // 對 button#btn 註冊 click 事件
-        let samBtn = document.querySelector('button#btn');
-        samBtn.addEventListener('click', function(event){
+        document.querySelector('button#btn').addEventListener('click', function(event) {
 
             // event.target 等同於 this
+            // 修改文字
             event.target.innerText = '已改變';
         });
 
-        // 對 div 註冊兩個事件，分別是移入跟移出
+        // 對 div 註冊兩個事件，分別是滑鼠移入和移出
         let div = document.querySelector('div');
-        div.addEventListener('mousemove', function(event){
-            this.style.backgroundColor = '#33ffff';
+        div.addEventListener('mousemove', function(event) {
+            event.target.style.backgroundColor = '#33ffff';
         });
         div.addEventListener('mouseout', function(event) {
-            this.style.backgroundColor = '#ccc';
+            this.style.backgroundColor = '#ff0000';
         });
 
-        // 對 img puppy 註冊滑鼠移入事件
+        // 對 img.puppy 註冊滑鼠移入事件
         document.querySelector('img.puppy').addEventListener('mousemove', function(event) {
-            this.setAttribute(
-                'src',
-                'https://ballparkdigest.com/wp-content/uploads/2020/02/New-Trenton-Thunder-bat-dog-300x300.jpg'
-            );
+            this.setAttribute('src', 'https://ballparkdigest.com/wp-content/uploads/2020/02/New-Trenton-Thunder-bat-dog-300x300.jpg')
         });
 
         document.querySelector('img.puppy').addEventListener('mouseout', function(event) {
-            this.setAttribute(
-                'src',
-                'https://i.pinimg.com/600x315/8d/4c/82/8d4c82be4f898f25a465919698566b57.jpg'
-            );
+            this.setAttribute('src', "https://i.pinimg.com/600x315/8d/4c/82/8d4c82be4f898f25a465919698566b57.jpg")
         });
-
     </script>
 </body>
 </html>

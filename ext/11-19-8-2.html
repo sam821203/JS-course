@@ -14,24 +14,19 @@
         console.log(listOfName);
 
         // 2. 使用 arr.push() 將資料加到陣列尾端
-        listOfName.push("Fox", "Gina");
-        console.log(listOfName)
+        listOfName.push('Push1', 'Push2');
+        console.log(listOfName);
 
         // 3. 修改元素
         listOfName[0] = 'Allen';
-        listOfName[2] = 'Tina';
+        listOfName[2] = 'Carl';
         console.log(listOfName);
 
-        listOfName.push("Alpha");
-        listOfName[5] = "Beta";
-        console.log(listOfName);
-
-        // 4. 刪除最末端的元素
+        // 4. 刪除尾端的元素 arr.pop()
         listOfName.pop();
         console.log(listOfName);
 
-        // 5. 將刪除的元素指派到變數
-        listOfName.pop();
+        // 5. 刪除尾端元素，並取出放置在新的變數當中
         let name = listOfName.pop();
         console.log(name);
         console.log(listOfName);
@@ -41,25 +36,26 @@
         console.log(listOfName);
 
         // 7. 刪除陣列第一個元素，並放置在新的變數中
-        let name2 = listOfName.shift();
-        console.log(name2);
+        let shiftName = listOfName.shift();
+        console.log(shiftName);
         console.log(listOfName);
         
-        // 8. 有時候從尾端刪除的陣列資料，需要移到陣列最前端，使用 .unshift()
-        let name3 = listOfName.pop();
+        // 8. 有時候從尾端刪除的陣列資料，需要移到陣列最前端，使用 arr.unshift()
+        name = listOfName.pop();
         listOfName.unshift(name);
         console.log(listOfName);
 
         // 9. 從陣列中間新增一個值
         // arr.splice(指定索引位置，刪除資料數量，寫入資料)
-
-        listOfName.splice(0, 0, "Alexdra");
+        listOfName.splice(0, 0, 'Alex');
         console.log(listOfName);
 
-        // 如果只說要刪兩個 splice(1, 2)，但後面又給三個值，那三個值也都會被移進來
-        let arrRemoveValue = listOfName.splice(1, 2, "Billgay", "Homee", "Sam")
+        let arrRemoveValue = listOfName.splice(1, 2, 'Bill', 'Tina');
         console.log(arrRemoveValue);
         console.log(listOfName);
+        
+        // 如果只說要刪兩個 splice(1, 2)，但後面又給三個值，那三個值也都會被移進來
+        
     </script>
 </head>
 <body>

@@ -7,15 +7,19 @@
     <title>Document</title>
     <script>
         let bool = (1 > 2) ? true : false;
-        console.log(bool); // 輸出 false
+        console.log(bool);
 
-        let x = 5;
+        let x = 3;
         let y = 4;
-        let answer = (x > y) ? 'x is greater than y' : 'x is less than y';
+        let answer = (x > y) ? 'this is true that x > y' : 'Nope!!';
         console.log(answer);
+
+        let condition = false;
+        // 如果只有一行，就不需要用 {} block 包起來，可以直接寫在同一行
+        if (condition) console.log('true');
+        else console.log('false');
     </script>
 </head>
 <body>
-    <p>測試中</p>
 </body>
 </html>

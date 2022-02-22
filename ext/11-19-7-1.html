@@ -5,47 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
     <script>
-        
-        // 如果在物件裡的值，是數值，在 console 裡就會顯示 藍色的字
-        let cat = {
-            legs: 4,
-            name: 'Doraemon',
-            color: 'blue',
-        };
-
-        let person1 = {
-            name: 'Doraemon',
-            age: 19,
-            city: 'Taipei',
-        };
+        let bird = {
+            legs: 2,
+            name: 'Sun',
+            color: 'green'
+        }
 
         // 使用 [] 來存取屬性
-        console.log(cat['legs']);
-        console.log(cat['name']);
-        console.log(cat['color']);
+        console.log( bird['legs']);
+        console.log( bird['name']);
 
         // 使用 . 來存取屬性
-        console.log(person1.age);
-        console.log(person1.city);
+        console.log( bird.legs );
+        console.log( bird.color );
 
         // 增加物件屬性
-        // 在 console 裡，屬性的排序會依照首字母
-        cat['eye_color'] = 'black';
-        cat.habbit = 'swim in the winner season';
-
-        cat['size'] = 'huge';
-        person1['skin_color'] = 'beige';
-
-        cat.skin_color = 'brown';
-        person1.habbit = 'fighting';
-        person1.habbit2 = 'reading';
-        person1.tabbit3 = 'testing';
-
-        console.log(cat);
-        console.log(person1);
+        bird['eye_color'] = 'black';
+        bird.habbit = 'curiosity';
+        console.log(bird);
     </script>
+</head>
+<body>
+    
 </body>
 </html>

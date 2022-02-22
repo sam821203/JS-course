@@ -8,24 +8,24 @@
     <script>
         // 一，建立基本函式
         function say (name) {
-            console.log('hello world');
-        };
+            console.log('hello' + name);
+        }
 
         // 執行函式
-        say();
+        say('Sam');
 
         // 二，帶有參數的函式
-        function greet01(name) {
+        function greet01 (name) {
             console.log('hello,' + name);
         }
         greet01('Sam');
 
         // 三，帶有多個參數的函式
-        function greet02(greeting, name) {
+        function greet02 (greeting, name) {
             console.log(greeting + ',' + name);
-        };
+        }; 
 
-        greet02('fuck', 'idot');
+        greet02('Hi', 'Tom');
 
         // 四，有回傳值的函式
         function getMessage01 () {
@@ -37,10 +37,10 @@
         console.log( getMessage01() );
 
         // 五，帶有參數，同時回傳值
-        function getMessage02 (name) {
-            return 'good job ' + name;
+        function getMessage02(name) {
+            return 'Good Job! ' + name;
         }
-        console.log(getMessage02('Bill'));
+        console.log( getMessage02('Bill') ) ;
     </script>
 </head>
 <body>
