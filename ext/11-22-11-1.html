@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        //宣告 Date 物件
+        // 宣告 Date 物件
         let date = new Date();
-        console.log(date);
 
-        //字串變數
+        // 字串變數
         let strTime = '';
 
-        //串接時間
-        strTime += date.getFullYear(); //2021
-        strTime += date.getMonth() + 1; //Month 回傳的範圍是 0-11，所以後面要再 +1
-        strTime += date.getDate(); //28
-        strTime += date.getHours(); //21
-        strTime += date.getMinutes(); //16
-        strTime += date.getSeconds(); //50
-        
+        // 串接時間
+        strTime += date.getFullYear(); // 2022，西元年
+        strTime += date.getMonth() + 1; //2，月份
+        strTime += date.getDate(); //23，日期
+        strTime += date.getHours(); // 11，小時
+        strTime += date.getMinutes(); // 5，分
+        strTime += date.getSeconds(); // 50，秒
+
         console.log(strTime);
     </script>
 </head>
 <body>
-   
+    
 </body>
 </html>

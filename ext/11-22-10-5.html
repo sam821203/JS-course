@@ -7,31 +7,30 @@
     <title>Document</title>
     <script>
         // 亂數
-        console.log(Math.random());
-        console.log(Math.random());
-        console.log(Math.random());
-        console.log(Math.random());
-        console.log('-------------------------------');
-        console.log(Math.ceil(3.14));
-        console.log(Math.floor(3.14));
+        console.log( Math.random() );
+        console.log( Math.random() );
+        console.log( Math.random() );
+        console.log( Math.random() );
 
         // 隨機選擇餐點
         let arrMeal = ['麥當勞', '肯德基', '摩斯漢堡', '頂呱呱', '漢堡王'];
-        
-        let idxRandom = Math.floor (Math.random() * arrMeal.length );
-        
+
+        // 將亂數乘上陣列長度，無條件捨去後取整數，做為隨機取得的索引
+        let idxRandom = Math.floor ( Math.random() * arrMeal.length );
+        console.log(idxRandom);
+
         document.write(`我可以選擇的餐廳有：<br>`);
 
         // 列出所有餐廳
         for (let value of arrMeal) {
-            document.write(`>> ${value} <br>`)
+            document.write(`- ${value} <br>`);
         }
 
         // 將隨機整數，放到餐廳陣列當中，取得對應的餐廳名稱
-        document.write(`今天中餐，我選擇${arrMeal[idxRandom]}`);
+        document.write(`今天中餐，我選擇 ${arrMeal[idxRandom]}`);
     </script>
 </head>
 <body>
-   
+    
 </body>
 </html>

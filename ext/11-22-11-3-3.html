@@ -15,39 +15,38 @@
         // 累加變數
         let count = 0;
 
+        // 作為 clearInterval() 的變數
         let instanceId;
 
-        // 累加用的函式
+        // 累家用的函式
         function countNum() {
             document.querySelector('input#txt').value = count;
-
-            // 進行數字累加
-            count = count + 1;
-        }
+            count++;
+        } 
 
         // 開始累加
-        function startCount () {
-            // 週期性在指定毫秒後，進行累加
-            instanceId = setInterval(function () {countNum()}, 1000);
+        function startCount() {
+            // 週期性再指定秒後，進行累加
+            instanceId = setInterval(function() {
+                countNum();
+            }, 1000);
 
-            // 將開始按鈕增加 disabled 屬性
-            // element.setAttribute(<name>, <value>);
-            document.querySelector("button#btn_start").setAttribute("disabled", "");
+            // 增加 disabled 屬性
+            document.querySelector('button#btn_start').setAttribute('disabled', '');
 
-            // 將結束按鈕移除 disabled 屬性
-            document.querySelector("button#btn_stop").removeAttribute("disabled");
+            // 移除 disabled 屬性
+            document.querySelector('button#btn_stop').removeAttribute('disabled');
         }
 
         // 結束累加
-        function stopCount () {
-            // 結束 setInterval
+        function stopCount() {
             clearInterval(instanceId);
 
-            // 將開始按鈕移除 disabled 屬性
-            document.querySelector("button#btn_start").removeAttribute("disabled");
+            // 移除掉 botton start 的 disabled 屬性
+            document.querySelector('button#btn_start').removeAttribute('disabled');
 
-            // 將結束按鈕增加 disabled 屬性
-            document.querySelector("button#btn_stop").setAttribute("disabled", "");
+            // 增加 disabled 屬性
+            document.querySelector('button#btn_stop').setAttribute('disabled', '');
         }
     </script>
 </body>

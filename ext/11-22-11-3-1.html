@@ -7,25 +7,25 @@
     <title>Document</title>
     <script>
         // 三秒後跳出訊息
-        setTimeout (function () {
-            alert('testing');
-        }, 2000); 
+        setTimeout(function () {
+            alert('after 3 seconds');
+        }, 3000);
 
         // 自訂函式
-        function getMessage01(){
-            alert('good job!');
+        function getMessage01 () {
+            alert('Good job!');
         }
-        setTimeout( getMessage01, 8000);
 
-        // 也可以自帶參數
-        function getMessage02 (greeting, name) {
-            alert(`${greeting}, ${name}`);
+        setTimeout ( getMessage01, 5000 ); 
+
+        // 自帶參數
+        function getMessage02(greeting, name) {
+            alert(`${greeting}, 請問你的名字是${name}嘛？`);
         }
-        setTimeout(getMessage02, 3000, 'Hi', 'Yu Hao');
-
+        setTimeout( getMessage02, 7000, '你好', '黃宇浩');
     </script>
 </head>
 <body>
-   
+    
 </body>
 </html>

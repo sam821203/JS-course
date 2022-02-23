@@ -7,37 +7,40 @@
     <title>Document</title>
     <script>
         // 以 function 關鍵字來建立類別 (class)
-        // 這裡的變數 Person 是共通樣式，要用大寫
+        // 這裡的變數 Person 是共通樣式，要用大寫開頭來命名
         // 跟一般的變數差別在於，只要前面有加 'new' 關鍵字，就能宣告新的類別
-        let Person = function(name,  gender, age) {
+        let Person = function (name, gender, age) {
             this.name = name;
             this.gender = gender;
-            this.age = age; 
+            this.age = age;
+
+            // 新增一個方法，它的責任是回傳我的實際歲數
             this.getAge = function () {
-                return this.age; 
+                return this.age;
             }
+
             this.setName = function (name) {
                 this.name = name;
             }
-        } 
+        }
 
         // 用 new 關鍵字來實體化 (變成物件)
         // 這裡的 person1 和 person2 代表上面的 this.
-        let person1 = new Person("Alice", "女", 22);
-        let person2 = new Person("Sam", "男", 27);
+        let person1 = new Person('Alice', '女', 22);
+        let person2 = new Person('Bill', '男', 18);
 
         // 輸出兩個 person 的 name
         // 不建議這樣改名字，盡量先設一個 function setName 來修改名字
-        console.log(person1.name);
-        console.log(person2.name);
-
-        // 設一個 function setName 來修改名字
-        person1.setName('Ellen')
-        console.log(person1.name);
+        console.log( person1.name );
+        console.log( person2.name );
 
         // 取得 person 的 age 值
-        console.log( person1.getAge() );
-        console.log( person2.getAge() );
+        // 應該透過下面的方式來取得屬性，而不是用上面的方式
+        console.log( person1.getAge());
+        console.log( person2.getAge());
+
+        person1.setName('Sam');
+        console.log( person1.name );
     </script>
 </head>
 <body>

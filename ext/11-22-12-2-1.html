@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
     <script>
-
         let strBrowser = '';
         let strUsrAg = window.navigator.userAgent;
         document.write(strUsrAg);
@@ -17,10 +14,13 @@
         if (strUsrAg.indexOf("Mobile") > -1) {
             strBrowser = '手機瀏覽器';
         } else {
-            strBrowser = '個人電腦瀏覽器';
+            strBrowser = '個人桌機瀏覽器';
         }
 
-        document.write("您正在使用: " + strBrowser);
+        document.write("您正在使用：" + strBrowser);
     </script>
+</head>
+<body>
+    
 </body>
 </html>
