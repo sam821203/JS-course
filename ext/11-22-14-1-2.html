@@ -17,30 +17,17 @@
         // 取得容器
         let myList = document.querySelector('ul#myList');
 
-        // 建立新的 <li> 元素
-        let newNode = document.createElement('li');
+        // 動態建立新的 <li>
+        let newNode = document.createElement('li');     
 
-        // 給新的 <li> class
-        newNode.className = 'mov-1'
-        
-        // 建立 textNode 文字節點
-        let textNode = document.createTextNode('永恆族');
+        // 建立文字節點
+        let textNode = document.createTextNode('Hello World!');
 
-        // 透過 appendChild 將 textNode 加入至 newNode
+        // 把文字放到 li 當中
         newNode.appendChild(textNode);
-
-        // 透過 appendChild 將 newNode 的 <li> 加入至 myList
         myList.appendChild(newNode);
+        // 加入 li 到 ul 當中
 
-        // 給 mov-1 下一個 dbclick 事件
-        let newLi = document.querySelector('li.mov-1');
-        newLi.addEventListener('mouseover', function() {
-            this.style.backgroundColor = '#ccc';
-        });
-
-        newLi.addEventListener('mouseout', function() {
-            this.style.backgroundColor = '#fff';
-        });
     </script>
 </body>
 </html>

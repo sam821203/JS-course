@@ -15,14 +15,14 @@
         // 取得第一個按鈕元素，並設定屬性
         let btn01 = document.querySelector('button#btn01');
         btn01.setAttribute('name', 'btn01');
-        btn01.setAttribute('disabled', '');
+        btn01.setAttribute('disabled', "");
 
         // 取得第二個按鈕元素，並取得屬性值
-        let btn02 = document.querySelector('button#btn02');
+        let btn02 = document.querySelectorAll('button')[1];
         let strName = btn02.getAttribute('name');
         document.write(strName);
 
-        //取得第三個按鈕，刪除 onclick 屬性
+        // 取得第三個按鈕，刪除 onclick 屬性
         let btn03 = document.querySelector('button#btn03');
         btn03.removeAttribute('onclick');
     </script>

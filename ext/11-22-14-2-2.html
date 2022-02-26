@@ -11,27 +11,19 @@
  
     <script>
         //取得文字欄位的元素，並設定自訂屬性
-        // let txt = document.querySelector('input#txt');
-        // txt.setAttribute('name', 'eternal'); 
-        // txt.setAttribute("value", "永恆族");
-        // txt.setAttribute("data-date", "11/17");
-        // txt.setAttribute("data-title", "永恆族");
-
         let txt = document.querySelector('input#txt');
-        txt.setAttribute('name', 'txt');
-        txt.setAttribute('value', '1234');
-        txt.setAttribute('data-price', `199 元`);
-        txt.setAttribute('data-title', '永恆族');
+        txt.setAttribute('name', 'txt man');
+        txt.setAttribute('value', 'give value');
+        txt.setAttribute('data-price', '220');
+        txt.setAttribute('data-title', '一般票');
+
+        let myTitle = txt.getAttribute('data-title');
+        let myPrice = txt.getAttribute('data-price');
 
         //輸出自訂屬性到網頁上
-        // document.write('<hr />');
-        // document.write( txt.getAttribute('data-date') + '<br />');
-        // document.write( txt.getAttribute('data-title') + "<br />" );
-        document.write('<hr>');
-        document.write(txt.getAttribute('data-title') + '<br>');
-        document.write(txt.getAttribute('data-price') + '<br>');
-
-
+        document.write("<hr>");
+        document.write(myTitle + '票種' + '<br>');
+        document.write(myPrice + '元' + '<br>');
     </script>
 </body>
 </html>

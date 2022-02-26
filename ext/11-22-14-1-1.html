@@ -8,25 +8,23 @@
 </head>
 <body>
 
-
     <script>
         // 建立新的 div
         let newDiv = document.createElement('div');
-        let newH1 = document.createElement('h1');
+        let newSpan = document.createElement('span');
 
         // 指定元素內建屬性
-        newDiv.id = 'myNewDiv'; //也可以使用 newDiv.setAttribute('id', 'myNewDiv')
-        newDiv.className = 'box'; //也可以使用 newDiv.setAttribute('class', 'box')
-
-        newH1.id = 'myNewH1';
-        newH1.className = 'heading';
+        // 也可以使用 newDiv.setAttribute('id', 'myNewDiv')
+        newDiv.id = 'myNewDiv';
+        newDiv.className = 'box';
+        newSpan.setAttribute('id', 'myNewSpan');
 
         // 建立 textNode 文字節點
-        let textNode = document.createTextNode('Hello World');
+       let textNode = document.createTextNode('Hello World!')
 
-        // 透過 newDiv.appendChild 將 textNode 加入至 newDiv
+        // 透過 .appendChild 將 textNode 加入至 newDiv
         newDiv.appendChild(textNode);
-
+ 
         // 透過 document.body.appendChild 來加入 newDiv 到網頁當中
         document.body.appendChild(newDiv);
     </script>

@@ -20,29 +20,17 @@
         let myList = document.querySelector('ul#myList');
 
         // 取得 <li>Item 02</li>
-        let oldNode1 = document.querySelectorAll('li')[1];
-        let oldNode2 = document.querySelectorAll('li')[3];
-        let oldNode3 = doucment.querySelectorAll('li')[4];
+        let oldNode = document.querySelectorAll('li')[1];
 
         // 動態建立 li
-        let newNode1 = document.createElement('li');
-        let newNode2 = document.createElement('li');
-        let newNode3 = document.createElement('li');
-        
+        let newNode = document.createElement('li');
+
         // 建立 textNode 文字節點
-        let textNode1 = document.createTextNode('Eternal');
-        newNode1.appendChild(textNode1);
-
-        let textNode2 = document.createTextNode('No Time to Die');
-        newNode2.appendChild(textNode2);
-
-        let textrNode3 = document.createTextNode('Magical');
-        newNode3.appendChild(textrNode3);
+        let textNode = document.createTextNode('I am here.');
+        newNode.appendChild(textNode);
 
         // 將原有的 oldNode(參考點) 替換成新節點 newNode(替換的點)
-        myList.replaceChild(newNode1, oldNode1);
-        myList.replaceChild(newNode2, oldNode2);
-        myList.replaceChild(newNode3, oldNode3);
+        myList.replaceChild(newNode, oldNode);
     </script>
 </body>
 </html>

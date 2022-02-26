@@ -5,22 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        span {
+            color: tomato;
+            font-size: 48px;
+        }
+    </style>
 </head>
 <body>
     <p style="color: #7878ff; line-height: 3; font-size: 30px;">Hello World<br />Good job!</p>
+
+    <span class="test1">span 的測試</span>
  
     <script>
         //取得 p 元素，並取得 style 屬性中的 css 屬性值
+        let span = document.querySelector('span');
         let p = document.querySelector('p');
-        documnet.write('<br />');
-        documnet.write(p.style.fontSize + '<br />');
-        documnet.write(p.style.color + '<br />');
-        documnet.write(p.style.lineHeight + '<br />');
+        document.write('<br>');
+        document.write(p.style.color + "<br>");
+        document.write(p.style.lineHeight + "<br>");
+        document.write(p.style.fontSize + "<br>");
 
         // 設定 p 的 color 為 #ff0000
         p.style.color = '#ff0000';
-        p.style['font-size'] = '80px'; // 屬性可以用 css 格式
-        p.style['backgroundColor'] = '#CFEE99'; //屬性可以用 javascript 格式
+        p.style['font-size'] = '34px';
+        p.style['backgroundColor'] = '#CFEE99';
     </script>
 </body>
 </html>
