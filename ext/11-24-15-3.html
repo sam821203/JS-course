@@ -8,34 +8,36 @@
 </head>
 <body>
     <form name="myForm" method="post" action="" onsubmit="return checkForm();">
-        <lable>您的姓名：</lable>
-        <input type="text" name="username" value="" />
+        <label for="">您的名字：</label>   
+        <input type="text" name="username" value="">
         <br />
-        <lable>您的 E-mail：</lable>
-        <input type="text" name="email" value="" />
+        <label for="">您的 E-mail：</label>
+        <input type="text" name="email" value="">
         <br />
-        <input type="submit" id="btn" value="檢查" />
+        <input type="submit" id="btn" value="檢查">
     </form>
 
     <script>
-        
-        // 字串是序列化物件
+        // 給 onsubmit 用的驗證函式
         function checkForm() {
+            // 判斷文字欄位是否小於 2 個字。如果是的話，就跳出警示訊息
             if (document.querySelector('input[name="username"]').value.length < 2) {
                 alert('請填寫正確姓名');
+                // 這裡一定要回傳 false，不然還是會送出
                 return false;
             }
 
-            if (!validateEmail(document.querySelector('input[name="email"]').value)) {
-                alert('Email 格式不正確');
+            // 如果驗證不成功
+            if (!validateEmail( document.querySelector('input[name="email"]').value ) ) {
+                alert('Email 不正確');
                 return false;
             }
 
-            // 回傳 true，讓 onsubmit 事件可以順利觸發
+            // 過了兩關後，在回傳去 action 的位置
             return true;
         }
 
-
+        // 驗證 E-mail
         function validateEmail(email) {
             let re = /[a-zA-Z0-9.-_]+@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+/;
             return re.test(email);

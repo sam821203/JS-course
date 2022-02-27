@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+
     <script>
         // re = Regular Expression
 
@@ -15,23 +18,20 @@
          * 測試字串是否配對，若是，則回傳 true，反之，則回傳 false
          */
 
-         let str01 = 'cccA0001';
-         let re01 = /A[0-9]+/;
-
-         if (re01.test(str01)) {
-            console.log(`re.test(str) 回傳結果：true`);
-         } else {
-            console.log(`re.test(str) 回傳結果：false`);
-         }
+        let str01 = 'cccA0001';
+        let re01 = /A[0-9]+/;
+        if (re01.test(str01)) {
+            console.log('true');
+        } else {
+            console.log('false');
+        }
 
         /**
          * str.match(re)
          * 配對成功，結果以陣列(Array)形式回傳，反之則回傳 null
          */
-
-        // match() 是針對字串
         let str02 = '1992, 2019, 1789, 1776, 1024, 3000, 4096, 8192';
-        let re02 = /\d{4}/g; // g 是 global 的意思
+        let re02 = /\d{4}/g;
         let match02 = null;
         if ((match02 = str02.match(re02)) != null) {
             console.log(match02);
@@ -40,39 +40,54 @@
         }
 
         /**
-             * re03.exec(str03)
-             * 透過迭代方式找出配對的結果，
-             * 成功就透過迴圈(例如 for 或 while)各別讀取，
-             * 失敗就回傳 null，
-             * 
-             * 格式範例為:
-             * [
-             *     "A0001", 
-             *     index: 0, 
-             *     input: "A0001, B0978, X9487, Y8787, Z5432", 
-             *     groups: undefined
-             * ]       
-         */
-        
+        * re03.exec(str03)
+        * 透過迭代方式找出配對的結果，
+        * 成功就透過迴圈(例如 for 或 while)各別讀取，
+        * 失敗就回傳 null， *
+        * 格式範例為: *[
+        * "A0001",
+        * index: 0,
+        * input: "A0001, B0978, X9487, Y8787, Z5432",
+        * groups: undefined *]
+        */
         let str03 = `A0001, B0978, X9487, Y8787, Z5432`;
         let re03 = /[A-Z][0-9]+/g;
         let match03 = null;
-        while((match03 = re03.exec(str03)) !== null ) {
+        while ((match03 = re03.exec(str03)) != null) {
             console.log(match03);
         }
 
-        // exec() 可以幫找到 group，match()則不行
+        /**
+        * re04.exec(str04)
+        * *
+        * 與 re03.exec(str03) 相似，
+        * 唯一的差別，在於 re04 當中有定義群組(group)，
+        * 通常用來取得字串當中特定的範圍的文字。 *
+        * 格式範例為:
+        *[
+        * "https://stickershop.line-
+        scdn.net/stickershop/v1/sticker/384169612/iPhone/sticker_animation@2x .png",
+            *     "384169612",
+        * index: 110,
+        * input: "↵ https://stickershop.line- scdn.net/stickershop...sticker/384169603/iPhone/sticker_animation@2x.png",
+        * groups: undefined *]
+        */
+
         let str04 = `background-image:url(https://stickershop.line-scdn.net/stickershop/v1/sticker/318800562/android/sticker.png;compress=true);
 background-image:url(https://stickershop.line-scdn.net/stickershop/v1/sticker/318800558/android/sticker.png;compress=true);
 background-image:url(https://stickershop.line-scdn.net/stickershop/v1/sticker/318800559/android/sticker.png;compress=true);`;
-        let re04 = /https?:\/\/stickershop\.line-scdn\.net\/stickershop\/v1\/sticker\/([0-9]+)\/android\/sticker\.png/g;
+
+        let re04 = /https?:\/\/stickershop\.line-scdn\.net\/stickershop\/v1\/sticker\/(\d+)\/android\/sticker\.png/g;
         let match04 = null;
-        while((match04 = re04.exec(str04)) !== null ) {
-            console.log(`圖片網址為: ${match04[0]}`);
-            console.log(`圖片名稱為: ${match04[1]}`);
+        while( (match04 = re04.exec(str04)) !== null ){
+            console.log(match04);
         }
 
-        let str05 = `如何讓你遇見我
+        /**
+     * string.split(re05)
+     * 以 re05 作為分割文字的字串或字元，轉為陣列型態
+     */
+    let str05 = `如何讓你遇見我
 
 在我最美麗的時刻
 
@@ -104,29 +119,27 @@ background-image:url(https://stickershop.line-scdn.net/stickershop/v1/sticker/31
 
 ——席慕蓉《一朵開花的樹》`;
 
-        //將文字以指定字元、字串或符號進行切割，建立陣列
-        let re05 = /\n|,|\.|，|。|！/;
+    // 將文字以指定字元，加以切割，建立陣列
+    let re05 = /\n|,|\.|，|。|！/; 
 
-        //切割成陣列
-        arr05 = str05.split(re05);
+    // 將這串文字切割成陣列
+    let arr05 = str05.split(re05);
 
-        //移除陣列當中的空字串 (使用 delete)
-        for(let key in arr05) {
-            //若是移除，當前 key 所代表的 value，會變成 undefined
-            if (arr05[key] == '') delete arr05[key]; // 這裡的 key 就是索引 [0, 1, 2...]
-        }
+    // 移除陣列當中的空字元 (使用 delete)
+    for (let key in arr05) {
+        if (arr05[key] == '') delete arr05[key];
+    }
 
-        // 建立暫存空陣列 arrTmp
-        // for (of) 沒有序列的概念，所以不能用在物件
-        let arrTmp = [];
-        for (let value of arr05) {
-            if(value != undefined) arrTmp.push(value);
-        }
+    // 建立暫存空陣列，把正確的資料放入其中
+    let arrTmp = [];
+    for (let value of arr05) {
+        if (value != undefined) arrTmp.push(value);
+    }
 
-        // 最後再將整理好資料的 arrTmp 指派回去 arr
-        arr05 = arrTmp;
+    arr05 = arrTmp;
 
-        console.log(arr05);
+    console.log(arr05);
     </script>
 </body>
+
 </html>
