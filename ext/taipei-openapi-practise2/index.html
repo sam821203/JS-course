@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, thead, th, tbody, tr, td {
+            border: 1px dotted lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn_request">取得綠色餐廳列表</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>_id</th>
+                <th>平均每日客運人次[人次]</th>
+                <th>營運收入/總計[千元]</th>
+                <th>年月別</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        document.querySelector('button#btn_request').addEventListener('click', function(event) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('get', 'https://data.taipei/api/v1/dataset/b0685075-97c6-4586-b4a4-702ddbf058e6?scope=resourceAquire');
+            xhr.send();
+            xhr.onload = function() {
+                let obj = JSON.parse(this.responseText);
+                let tbody = document.querySelector('table > tbody');
+                if ( obj['result']['count'] > 0) {
+                    for (let o of obj['result']['results']) {
+                        let tr = document.createElement('tr');
+                        tr.innerHTML = 
+                        `<td>${o['_id']}</td>
+                        <td>${o['平均每日客運人次[人次]']}</td>
+                        <td>${o['營運收入/總計[千元]']}</td>
+                        <td>${o['年月別']}</td>`;
+
+                        tbody.appendChild(tr);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
